@@ -25,13 +25,13 @@ int  main(int argc, char *argv[])
 
    char buf[BUFFSIZE];
    int matches = 0;
-   int sz = 0;
+   size_t sz = 0;
    // calculating the file size with fseek
    fseek(inFile, 0, SEEK_END);
    sz = ftell(inFile);
    fseek(inFile, 0, SEEK_SET);
 
-   printf("the file size is: %d\n", sz);
+   printf("the file size is: %zu\n", sz);
    char *origin = argv[2];
    int originLen = strlen(origin);
 
@@ -58,7 +58,7 @@ int  main(int argc, char *argv[])
        exit(1);
    }
    //writing results to the file
-   fprintf(outFile,"the file size is: %d\n", sz);
+   fprintf(outFile,"the file size is: %zu\n", sz);
    fprintf(outFile, "number of matches is: %d\n", matches);
    //closing two files 
    if(fclose(inFile))  printf("closing input file is not successful\n"); 
